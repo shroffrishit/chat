@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
+#import <Parse/Parse.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 @interface AppDelegate ()
 
@@ -16,6 +19,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [Parse setApplicationId:@"DXsvTSLgsKT03gSSqy6V5KbLwVpgfEjmEsKzzQUP" clientKey: @"BXAzmCJhMtIVWhLVEiKIMzPCA5XI0Nt9NwvAOPVd"];
+    [PFFacebookUtils initializeFacebook];
+    
+    LoginViewController* lvc = [[LoginViewController alloc] init];
+    UINavigationController* nvc = [[UINavigationController alloc] initWithRootViewController:lvc];
+    self.window.rootViewController = nvc;
+    [self.window makeKeyAndVisible];
+    
+    
     // Override point for customization after application launch.
     return YES;
 }
